@@ -1,0 +1,59 @@
+#############################################################################
+#                                                                           #
+# PDFUnit - Automated PDF Tests                                             #
+#                                                                           #
+# Copyright (C) 2016 PDFUnit.com                                            #
+#                                                                           #
+# This file is part of the commercial library PDFUnit.                      #
+#                                                                           #
+# Legal information__: http://pdfunit.com/en/licenseinfo.html               #
+# Manual_____________: http://pdfunit.com/en/download/index.html            #
+# Contact for license: license[at]pdfunit.com                               #
+#                                                                           #
+#############################################################################
+#
+# This is the license key file to use PDFUnit-Java
+#
+# If the licensee gives this product to another company or person, the licensee 
+# has to pay that license fee as a penalty, which had not been payed
+# by the misuser. Of course, the misusing company has to pay the license 
+# also by itself.
+#
+# The minimum penalty fee for misuse PDFUnit is calculated this way:
+# - 1 Euro Cent per year of use per PDF document which was
+#   produced by that project that uses PDFUnit unauthorized.
+# - If the amount calculated in this way is less 1000 Euro, then a minimum 
+#   of 1000 Euro per year of misuse has to be paid.
+# - The penalty has to be paid by the company or person who gives this
+#   key away and also by the company or person who takes this key.
+# So at the end the one who gave the license away, pays his license cost 
+# AND the penalty. And the one who took the license also pays his license 
+# cost AND the penalty.
+#
+ 
+#
+# Customer (licensee) data:
+#
+license.id            = EVAL   
+company.name          = EvaluationVersion   
+customer.name         = n.n.   
+customer.mail         = info@pdfunit.com   
+
+#
+# One month before the license ends, a message to System.out is written 
+# to inform the user to renew the license.
+#
+license.begin.date    = 2015-12-10
+license.end.date      = 2016-11-15
+
+#
+# The release belonging to this version needs the following Java version:
+#
+java.specification.version = 1.7  
+java.class.version = 51.0          
+
+#
+# This is the time when the license was given. 
+# In any case of a new license key file, this value will be changed
+#
+license.created.date = 2016-06-06T13:24:49

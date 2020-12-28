@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.3.7.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+  <groupId>com.giraone</groupId>
+  <artifactId>pdf</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>pdf-assertions</name>
+  <description>Test project for PDF assertions</description>
+
+  <properties>
+    <java.version>11</java.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>2.0.22</version>
+		</dependency>
+
+		<!-- ============== TEST ================== -->
+
+    <!-- For PDF Unit Tests - START -->
+    <!--
+    mvn install:install-file -Dfile=libs/pdfunit-java-2016.05.jar -Djavadoc=libs/pdfunit-java-2016.05-javadoc.jar \
+    -Dpackaging=jar -DgeneratePom=true -DgroupId=com.pdfunit -DartifactId=pdfunit -Dversion=2016.05
+    -->
+    <dependency>
+      <groupId>com.pdfunit</groupId>
+      <artifactId>pdfunit</artifactId>
+      <version>2016.05</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcprov-jdk15on</artifactId>
+      <version>1.67</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-collections4</artifactId>
+      <version>4.4</version>
+      <scope>test</scope>
+    </dependency>
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.9.6</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- For PDF Unit Tests - END -->
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.junit.vintage</groupId>
+          <artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>install-external-pd4ml</id>
+              <phase>verify</phase>
+              <configuration>
+                <file>${maven.multiModuleProjectDirectory}/libs/pd4ml-4.0.9.jar</file>
+                <javadoc>${maven.multiModuleProjectDirectory}/libs/pd4ml-4.0.9-javadoc.jar</javadoc>
+                <repositoryLayout>default</repositoryLayout>
+                <groupId>com.pd4ml</groupId>
+                <artifactId>pd4ml</artifactId>
+                <version>4.0.9</version>
+                <packaging>jar</packaging>
+                <generatePom>true</generatePom>
+              </configuration>
+              <goals>
+                <goal>install-file</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>install-external-pdfunit</id>
+              <phase>verify</phase>
+              <configuration>
+                <file>${maven.multiModuleProjectDirectory}/libs/pdfunit-java-2016.05.jar</file>
+                <javadoc>${maven.multiModuleProjectDirectory}/libs/pdfunit-java-2016.05-javadoc.jar</javadoc>
+                <repositoryLayout>default</repositoryLayout>
+                <groupId>com.pdfunit</groupId>
+                <artifactId>pdfunit</artifactId>
+                <version>2016.05</version>
+                <packaging>jar</packaging>
+                <generatePom>true</generatePom>
+              </configuration>
+              <goals>
+                <goal>install-file</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+  </build>
+
+</project>
